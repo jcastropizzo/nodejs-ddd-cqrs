@@ -9,15 +9,19 @@ export class DebitAccountCommandHandler
   implements ICommandHandler<DebitAccountCommand> {
   constructor(
     private readonly repository: AccountRepository
-  ) {}
+  ) { }
 
   async execute(command: DebitAccountCommand, resolve: (value?) => void) {
-    Logger.log('Async DebitAccountCommandHandler...', 'DebitAccountCommand');
-    var { Value } = await this.repository.getAccountBalance();
-    Logger.log(await this.repository.getAccountBalance());
-    if(Value!=undefined && Value>=command.value){
-      this.repository.updateAccountBalance(Operation.Debit,command.value)
+    try {
+      Logger.log('Async DebitAccountCommandHandler...', 'DebitAccountCommand');
+      var { Value } = await this.repository.getAccountBalance();
+      Logger.log(await this.repository.getAccountBalance());
+      if (Value != undefined && Value >= command.value) {
+        this.repository.updateAccountBalance(Operation.Debit, command.value)
+      }
+    } finally {
+      resolve();
     }
-    resolve();
+
   }
 }
