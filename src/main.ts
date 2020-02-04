@@ -29,7 +29,7 @@ async function bootstrap() {
   });
   SwaggerModule.setup(config.API_EXPLORER_PATH, app, document);
   /* TODO: move to .env*/
-  AppDAO.initDb("./data");
+  AppDAO.initDb("./data.db");
   await app.listen(config.PORT, config.HOST);
   Logger.log(`Server listening on port ${config.PORT}`, 'Bootstrap');
 }
