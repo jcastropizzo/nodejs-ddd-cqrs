@@ -1,5 +1,4 @@
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
-import { UpdateUserCommand } from '../impl/update-user.command';
 import { AccountRepository } from '../../repository/account.repository';
 import { Logger } from '@nestjs/common';
 import { CreditAccountCommand } from '../impl/credit-account.command';
