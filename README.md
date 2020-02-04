@@ -7,7 +7,7 @@ Used SqlLite as store.
 ## Installation
 
 ```bash
-$ yarn
+$ yarn install
 ```
 
 ## Running the app
@@ -17,7 +17,9 @@ $ yarn
 $ yarn start -->
 
 # watch mode
+```
 $ yarn start:dev
+```
 <!-- 
 # production mode
 $ yarn start:prod
